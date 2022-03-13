@@ -1,0 +1,21 @@
+{
+  "name": "moneystream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "client": "node --experimental-fetch --no-warnings src/client.js",
+    "server": "node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bruno Vieira",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  },
+  "description": ""
+}
