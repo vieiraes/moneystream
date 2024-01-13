@@ -1,21 +1,16 @@
 {
   "name": "moneystream",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "type":"module",
   "scripts": {
-    "client": "node --experimental-fetch --no-warnings src/client.js",
-    "server": "node src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "web": "node src/server.js"
   },
   "keywords": [],
   "author": "Bruno Vieira",
-  "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
+  "license": "MIT",
   "dependencies": {
-    "axios": "^0.26.1"
-  },
-  "description": ""
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
 }

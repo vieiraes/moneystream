@@ -1,0 +1,103 @@
+/* Personalizações adicionais utilizando Bootstrap */
+.time-count,
+.bits-count {
+    font-size: 2em;
+    display: block;
+    color: #17a2b8;
+    /* Cor tema do Bootstrap (info) */
+}
+
+.live-time,
+.user-time,
+.bits-earned {
+    background-color: white;
+    border: 1px solid #f8f9fa;
+    /* Cor de fundo do Bootstrap (light) */
+    border-radius: 0.5em;
+}
+
+/* Efeitos de sombra da classe shadow serão aplicados pelo Bootstrap */
+body {
+    background-color: #d00;
+    /* Cor vermelha das Lojas Americanas */
+}
+
+.app-container {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px auto;
+    /* Centraliza o app-container e mantém uma margem uniforme */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    /* Garante que o app-container não seja mais largo que a tela */
+    box-sizing: border-box;
+    /* Inclui padding e borda no cálculo da largura do elemento */
+}
+
+.title {
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.row {
+    justify-content: center;
+    /* Garante que os filhos da row estejam centralizados */
+}
+
+
+.embed-responsive-item {
+    width: calc(100% - 30px);
+    /* Ajuste para a largura considerando o padding */
+    height: auto;
+    max-height: 500px;
+    /* A altura máxima pode ser ajustada conforme necessário */
+    border-radius: 15px;
+}
+
+.counter {
+    font-size: 0.8em;
+    /* Reduzir o tamanho da fonte dos contadores */
+}
+
+.control-container {
+    border: 3px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    margin: 0 15px;
+    max-width: calc(100% - 30px);
+    /* Define largura máxima levando em conta as margens laterais */
+    box-sizing: border-box;
+    /* Garante que o padding esteja incluído no cálculo da largura */
+    /* Espaço nas laterais */
+}
+
+.wallet {
+    display: inline-block;
+    /* Facilita a centralização */
+    margin-top: 15px;
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+.btn {
+    margin-right: 10px;
+    /* Espaço entre os botões */
+}
+
+.redeem-info {
+    color: #17a2b8;
+    font-size: 1em;
+    padding: 5px;
+    /* Estilização extra, caso necessário */
+}
+
+#redeem-error {
+    color: red;
+    /* ou a cor hexadecimal específica */
+    display: none;
+    /* Oculto por padrão */
+}

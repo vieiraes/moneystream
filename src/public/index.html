@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyStream Live</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container title">MoneyStream</div>
+    <div class="container app-container mt-3">
+        <!-- Correção: Remove iframe duplicado aqui -->
+        <div class="embed-responsive embed-responsive-16by9 mb-3">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Rr89KUhaN1c?start=1755&autoplay=1&mute=1" allowfullscreen></iframe>
+        </div>
+
+        <!-- Info de resgates disponíveis já está corretamente posicionada -->
+        <div class="redeem-info counter shadow rounded text-center mt-3">
+            Resgates disponíveis: <span id="redeems-available">3</span>
+        </div>
+        <div id="redeem-error" class="text-center mt-2" style="display:none; color: red;">
+            Você não tem mais resgates disponíveis.
+        </div>
+
+        <!-- Contadores e saldo Bs$ -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="counter user-time shadow rounded p-3 text-center">
+                    Seu Tempo: <span id="user-time-counter" class="time-count">00:00:00</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="counter bits-earned shadow rounded p-3 text-center">
+                    Bs$ Acumulados: <span id="bits-earned-counter" class="bits-count">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container control-container mt-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <button id="toggle-timer-btn" class="btn btn-outline-info btn-sm">
+                    <i class="fa fa-play"></i>
+                </button>
+
+                <button id="redeem-bits-btn" class="btn btn-outline-success btn-sm ml-2">
+                    <i class="fa fa-gift"></i> Resgatar Bs$
+                </button>
+
+                <div class="wallet">
+                    Saldo Bs$: <span id="wallet-balance">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
