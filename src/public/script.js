@@ -4,6 +4,7 @@ let bitsEarned = 0;
 const bitsPerFiveSeconds = 0.02567;
 let isTimerRunning = false;
 let timerInterval;
+let redeemsAvailable = 3; // Contagem de resgates disponíveis
 
 // Função para atualizar o watch time e bits a cada segundo
 function updateWatchTime() {
@@ -44,50 +45,29 @@ document.getElementById('toggle-timer-btn').addEventListener('click', function (
 
 // Evento de resgate dos bits
 document.getElementById('redeem-bits-btn').addEventListener('click', function () {
-    const earnedBitsSpan = document.getElementById('bits-earned-counter');
-    const earnedBits = parseFloat(earnedBitsSpan.textContent);
-
-    // Transferir Bs$ Acumulados para Saldo Bs$ na wallet
-    const walletBalanceSpan = document.getElementById('wallet-balance');
-    const walletBalance = parseFloat(walletBalanceSpan.textContent) || 0;
-    const newWalletBalance = walletBalance + earnedBits;
-
-    walletBalanceSpan.textContent = newWalletBalance.toFixed(5);
-    bitsEarned = 0;
-    earnedBitsSpan.textContent = bitsEarned.toFixed(5);
-});
-
-// Iniciar a contagem de resgates disponíveis
-let redeemsAvailable = 3;
-
-// Atualizar o evento do botão Resgatar Bs$
-document.getElementById('redeem-bits-btn').addEventListener('click', function () {
-    if (redeemsAvailable <= 0) {
-        if (redeemsAvailable <= 0) {
-            redeemError.style.display = 'block'; // Mostra a mensagem de erro
-            return; // Sair da função se não houver mais resgates
-        } else {
-            redeemError.style.display = 'none'; // Esconde a mensagem de erro caso ainda haja resgates
-        }
-        return; // Sair da função se não houver mais resgates
-    }
-
-    // ... restante do código para resgatar os bits ...
-
-    // Decrementar o número de resgates disponíveis e atualizar a exibição
-    redeemsAvailable -= 1;
-    document.getElementById('redeems-available').textContent = redeemsAvailable;
-});
-
-document.getElementById('redeem-bits-btn').addEventListener('click', function () {
     const redeemError = document.getElementById('redeem-error');
-    // Caso não haja mais resgates disponíveis, mostrar a mensagem de erro ao invés de usar alert
-    if (redeemsAvailable <= 0) {
-        redeemError.style.display = 'block'; // Mostra a mensagem de erro
-        return; // Sair da função se não houver mais resgates
-    } else {
-        redeemError.style.display = 'none'; // Esconde a mensagem de erro caso ainda haja resgates
-    }
+    const earnedBitsSpan = document.getElementById('bits-earned-counter');
+    const walletBalanceSpan = document.getElementById('wallet-balance');
+    const redeemsAvailableSpan = document.getElementById('redeems-available');
 
-    // Restante do código para resgatar os bits...
+    if (redeemsAvailable > 0) {
+        redeemError.style.display = 'none'; // Esconde a mensagem de erro caso ainda haja resgates
+
+        const earnedBits = parseFloat(earnedBitsSpan.textContent);
+        const walletBalance = parseFloat(walletBalanceSpan.textContent) || 0;
+
+        // Transferir Bs$ Acumulados para Saldo Bs$ na wallet
+        const newWalletBalance = walletBalance + earnedBits;
+        walletBalanceSpan.textContent = newWalletBalance.toFixed(5);
+
+        // Resetar Bs$ Acumulados
+        bitsEarned = 0;
+        earnedBitsSpan.textContent = bitsEarned.toFixed(5);
+
+        // Decrementar o número de resgates disponíveis e atualizar a exibição
+        redeemsAvailable -= 1;
+        redeemsAvailableSpan.textContent = redeemsAvailable.toString();
+    } else {
+        redeemError.style.display = 'block'; // Mostra a mensagem de erro
+    }
 });
